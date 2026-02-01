@@ -1,32 +1,4 @@
-const { solve } = require("./logic.js");
-const { createServer } = require("node:http");
-const server = createServer((req, res) => {
-  let expression = req.url.split("?")[1];
-  console.log("Exp : ", expression);
-  let result = "";
-  let steps = "";
-  if (!expression) {
-    expression = "Expression not found";
-    result = "!!!";
-    steps =
-      "Please Enter a valid expression in the url<br>example : http://url.com/?1+1 <br>expression comes right after a ?";
-  } else {
-    let { result: r, steps: s } = solve(expression);
-    result = r.toString().replace("NaN", "Invalid");
-    steps = s.join("<br>").replaceAll("NaN", "Invalid");
-  }
-
-  res.writeHead(200, { "Content-Type": "text/html" });
-  res.write(getHTML(`${expression} = ${result}`, steps));
-
-  res.end();
-});
-server.listen(9999, "localhost", () => {
-  console.log("listening");
-});
-
-function getHTML(msg1, msg2) {
-  return `<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -63,7 +35,6 @@ function getHTML(msg1, msg2) {
         padding: 1em;
         font-size: 2em;
         width: 90%;
-        line-height: 1.2em;
       }
       @media (max-width: 600px) {
         pre {
@@ -78,12 +49,7 @@ function getHTML(msg1, msg2) {
   <body>
     <h1>Expression</h1>
     <div id="result">
-      <pre>${msg1}</pre>
-      <pre>Steps<br>${msg2}</pre>
-  </pre>
+      <pre></pre>
     </div>
   </body>
 </html>
-
-    `;
-}
