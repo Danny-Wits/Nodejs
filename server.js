@@ -1,5 +1,6 @@
 const { solve } = require("./logic.js");
 const { createServer } = require("node:http");
+const port = process.env.PORT || 9999;
 const server = createServer((req, res) => {
   let expression = req.url.split("?")[1];
   console.log("Exp : ", expression);
@@ -21,7 +22,7 @@ const server = createServer((req, res) => {
 
   res.end();
 });
-server.listen(9999, "localhost", () => {
+server.listen(port, "localhost", () => {
   console.log("listening");
 });
 
