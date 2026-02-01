@@ -22,9 +22,7 @@ const server = createServer((req, res) => {
 
   res.end();
 });
-server.listen(port, "localhost", () => {
-  console.log("listening");
-});
+server.listen(port);
 
 function getHTML(msg1, msg2) {
   return `<!doctype html>
