@@ -63,13 +63,13 @@ function getHTML(msg1, msg2) {
         font-size: 2em;
         width: 90%;
         line-height: 1.2em;
+        overflow: auto;
       }
       @media (max-width: 600px) {
         pre {
           font-size: 1.5em;
           text-align: left;
           width: 95%;
-          overflow: auto;
         }
       }
     </style>

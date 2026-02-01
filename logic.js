@@ -1,5 +1,5 @@
 const operators = ["+", "-", "*", "/", "%", "^"]; // in increasing order of precedence
-const debug = true;
+const debug = false;
 let DividedByZero = false;
 // Helpers :
 function isOperator(c) {
