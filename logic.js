@@ -1,5 +1,5 @@
-const operators = ["+", "-", "*", "/", "%"]; // in increasing order of precedence
-const debug = false;
+const operators = ["+", "-", "*", "/", "%", "^"]; // in increasing order of precedence
+const debug = true;
 let DividedByZero = false;
 // Helpers :
 function isOperator(c) {
@@ -24,6 +24,8 @@ function calculate(op1, op2, op) {
       return op1 / op2;
     case "%":
       return parseInt(op1) % parseInt(op2);
+    case "^":
+      return Math.pow(op1, op2);
     default:
       return 0;
   }
